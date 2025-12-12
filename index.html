@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 Flores para vos 🌸</title>
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: #ffe6f0; /* rosado original */
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* ===== TITULO ===== */
+h1 {
+  margin-top: 30px;
+  color: #cc3366;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  position: relative;
+  z-index: 5;
+}
+
+/* ===== LIRIO MORADO ===== */
+.lily-wrapper {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.lily {
+  position: relative;
+  width: 30vmin;
+  height: 30vmin;
+  animation: girar 14s linear infinite;
+}
+
+.lily::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(#4a148c 6%, transparent 55%),
+    radial-gradient(#4a148c 6%, transparent 55%),
+    radial-gradient(#4a148c 6%, transparent 55%),
+    radial-gradient(#4a148c 6%, transparent 55%),
+    radial-gradient(#4a148c 6%, transparent 55%),
+    radial-gradient(#4a148c 6%, transparent 55%);
+  background-size: 10% 10%;
+  background-repeat: no-repeat;
+  background-position:
+    50% 10%,
+    80% 30%,
+    80% 70%,
+    50% 90%,
+    20% 70%,
+    20% 30%;
+  z-index: 3;
+}
+
+/* ===== PETALOS DEL LIRIO ===== */
+.petal {
+  position: absolute;
+  width: 25vmin;
+  height: 25vmin;
+  right: 50%;
+  bottom: 50%;
+  transform-origin: bottom right;
+  border-radius: 5% 100% 25% 100%;
+  background:
+    radial-gradient(circle at 30% 30%, #e1bee7, transparent 40%),
+    linear-gradient(45deg, #9c27b0, #6a1b9a);
+  opacity: 0.95;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg); }
+.petal:nth-child(2) { transform: rotate(60deg); }
+.petal:nth-child(3) { transform: rotate(120deg); }
+.petal:nth-child(4) { transform: rotate(180deg); }
+.petal:nth-child(5) { transform: rotate(240deg); }
+.petal:nth-child(6) { transform: rotate(300deg); }
+
+/* ===== ANIMACIONES ===== */
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== PETALOS QUE CAEN (ROSADOS) ===== */
+.petalo {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493);
+  border-radius: 50% 50% 0 0;
+  opacity: 0.85;
+  animation: caer linear infinite;
+  z-index: 1;
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== BOTON CORAZON CSS ===== */
+.heart-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-45deg);
+  width: 60px;
+  height: 60px;
+  background: #e53935;
+  cursor: pointer;
+  border-radius: 10px;
+  z-index: 10;
+  transition: transform .2s ease;
+}
+
+.heart-btn::before,
+.heart-btn::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #e53935;
+  border-radius: 50%;
+}
+
+.heart-btn::before {
+  top: -30px;
+  left: 0;
+}
+
+.heart-btn::after {
+  left: 30px;
+  top: 0;
+}
+
+.heart-btn:hover {
+  transform: translateX(-50%) rotate(-45deg) scale(1.1);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+  .lily {
+    width: 40vmin;
+    height: 40vmin;
+  }
+  /* ===== TEXTO INDICATIVO ===== */
+/* ===== TEXTO INDICATIVO ===== */
+.hint {
+  position: fixed;
+  bottom: 65px; /* MÁS CERCA DEL CORAZÓN */
+  left: 50%;
+  transform: translateX(-50%);
+  color: #cc3366;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .hint {
+    bottom: 60px;
+    font-size: 0.9rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .hint {
+    bottom: 90px;
+    font-size: 0.9rem;
+  }
+}
+
+}
+</style>
+</head>
+<div class="hint">
+
+</div>
+<body>
+
+<h1>🌸 Estas flores son para Ali 🌸</h1>
+
+<!-- LIRIO -->
+<div class="lily-wrapper">
+  <div class="lily">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+  </div>
+</div>
+ 
+<!-- BOTON CORAZON -->
+<a href="Carta.html" class="heart-btn" aria-label="Abrir carta"></a>
+<div class="hint">
+  Dale click al corazón ❤️
+</div>
+<!-- PETALOS QUE CAEN -->
+<script>
+  for (let i = 0; i < 45; i++) {
+    const petalo = document.createElement('div');
+    petalo.className = 'petalo';
+    petalo.style.left = Math.random() * 100 + 'vw';
+    petalo.style.animationDuration = (6 + Math.random() * 6) + 's';
+    petalo.style.animationDelay = Math.random() * 5 + 's';
+    document.body.appendChild(petalo);
+  }
+</script>
+
+</body>
+</html>
