@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💌 Carta</title>
+
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: #ffe6f0; /* mismo rosado */
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ===== CONTENEDOR DE LA CARTA ===== */
+.carta {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px 25px;
+  border-radius: 18px;
+  max-width: 500px;
+  width: 85%;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  z-index: 5;
+}
+
+/* ===== TEXTO ===== */
+.carta p {
+  color: #cc3366;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== PETALOS QUE CAEN ===== */
+.petalo {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493);
+  border-radius: 50% 50% 0 0;
+  opacity: 0.85;
+  animation: caer linear infinite;
+  z-index: 1;
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+  .carta {
+    padding: 22px 18px;
+  }
+
+  .carta p {
+    font-size: 1rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- CONTENIDO DE LA CARTA -->
+<div class="carta">
+  <p>
+    Creé este espacio para escribirte cartas.
+Es mi diario para ti, donde guardo lo que siento por ti.
+Esta página web es tuya, Ali, y es mi regalo para ti.
+  </p>
+</div>
+
+<!-- PETALOS CAYENDO -->
+<script>
+  for (let i = 0; i < 40; i++) {
+    const petalo = document.createElement('div');
+    petalo.className = 'petalo';
+    petalo.style.left = Math.random() * 100 + 'vw';
+    petalo.style.animationDuration = (6 + Math.random() * 6) + 's';
+    petalo.style.animationDelay = Math.random() * 5 + 's';
+    document.body.appendChild(petalo);
+  }
+</script>
+
+</body>
+</html>
