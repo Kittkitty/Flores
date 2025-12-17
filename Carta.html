@@ -14,7 +14,7 @@ html, body {
 body {
   background-color: #ffe6f0;
   font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
+  overflow: auto;
   text-align: center;
 }
 
@@ -85,16 +85,17 @@ body {
 
 /* Carta de arriba */
 .carta2 {
-  top: 12%;
+  top: clamp(80px, 12vh, 140px);
   z-index: 10;
 }
 
 /* Carta de abajo */
 .carta {
-  top: 70%;
+  top: clamp(320px, 60vh, 420px);
   z-index: 5;
   opacity: 0.9;
 }
+
 @media (max-width: 480px) {
   .carta2 {
     padding: 22px 18px;
@@ -123,6 +124,24 @@ body {
 .carta2 {
   animation: flotarSuave 6s ease-in-out infinite;
 }
+/* Scrollbar moderno (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(204, 51, 102, 0.4);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(204, 51, 102, 0.6);
+}
+
 
 
 
