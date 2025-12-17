@@ -12,12 +12,9 @@ html, body {
 }
 
 body {
-  background-color: #ffe6f0; /* mismo rosado */
+  background-color: #ffe6f0;
   font-family: 'Segoe UI', sans-serif;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 }
 
@@ -54,7 +51,7 @@ body {
 
 @keyframes caer {
   0% {
-    transform: translateY(-40vh) rotate(0deg);
+    transform: translateY(-10vh) rotate(0deg);
     opacity: 1;
   }
   100% {
@@ -73,19 +70,88 @@ body {
     font-size: 1rem;
   }
 }
+.carta,
+.carta2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px 25px;
+  border-radius: 18px;
+  max-width: 500px;
+  width: 85%;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Carta de arriba */
+.carta2 {
+  top: 12%;
+  z-index: 10;
+}
+
+/* Carta de abajo */
+.carta {
+  top: 70%;
+  z-index: 5;
+  opacity: 0.9;
+}
+@media (max-width: 480px) {
+  .carta2 {
+    padding: 22px 18px;
+  }
+
+  .carta2 p {
+    font-size: 1rem;
+  }}
+.carta2 p {
+  color: #cc3366;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+@keyframes flotarSuave {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+.carta2 {
+  animation: flotarSuave 6s ease-in-out infinite;
+}
+
+
+
 </style>
 </head>
 
 <body>
 
 <!-- CONTENIDO DE LA CARTA -->
-<div class="carta">
-  <p>
-    Creé este espacio para escribirte cartas.
-Es mi diario para ti, donde guardo lo que siento por ti.
-Esta página web es tuya, Ali, y es mi regalo para ti.
-  </p>
+<div class="cartas-container">
+  <div class="carta"> <!-- La de arriba -->
+    <p>
+      Creé este espacio para escribirte cartas.
+      Es mi diario para ti, donde guardo lo que siento por ti.
+      Esta página web es tuya, Ali, y es mi regalo para ti.
+    </p>
+  </div>
+
+  <div class="carta2">
+    <p>
+      Ahora prefieres tu segundo nombre, así que así te llamaré. Estoy muy contento de que en estos días hayamos vuelto a hablar y de saber que te has estado sintiendo un poco mejor.
+La semana en la que no hablamos fue muy tensa, pero poco a poco todo se ha ido haciendo más liviano para los dos, especialmente en las cosas que nos estaban afectando.
+Espero que el tiempo en el que estaré fuera sea un tiempo tranquilo para ti, aunque no pueda demostrarte la atención de la misma forma que ahora. Aun así, recuerda que siempre estaré ahí; es parte de lo que te prometí.
+No le hagas caso a las personas que intentan hacerte sentir menos. Te voy a extrañar mucho y, si se puede, al menos un “buenos días” me haría muy feliz recibir.
+Cuídate mucho.💗
+    </p>
+  </div>
 </div>
+
 
 <!-- PETALOS CAYENDO -->
 <script>
