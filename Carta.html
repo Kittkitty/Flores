@@ -6,40 +6,68 @@
 <title>💌 Carta</title>
 
 <style>
+/* ===== BASE ===== */
 html, body {
-  height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 body {
   background-color: #ffe6f0;
   font-family: 'Segoe UI', sans-serif;
-  overflow: auto;
-  text-align: center;
+  overflow-y: auto;
 }
 
-/* ===== CONTENEDOR DE LA CARTA ===== */
-.carta {
-  background: rgba(255, 255, 255, 0.85);
-  padding: 30px 25px;
-  border-radius: 18px;
-  max-width: 500px;
-  width: 85%;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+/* ===== CONTENEDOR DIARIO ===== */
+.cartas-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  position: relative;
   z-index: 5;
+}
+
+/* ===== CARTAS ===== */
+.carta {
+  background: rgba(255, 255, 255, 0.88);
+  padding: 32px 28px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.18);
 }
 
 /* ===== TEXTO ===== */
 .carta p {
   color: #cc3366;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.8;
   margin: 0;
 }
 
-/* ===== PETALOS QUE CAEN ===== */
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+  .carta {
+    padding: 22px 18px;
+  }
+
+  .carta p {
+    font-size: 1rem;
+  }
+}
+
+/* ===== PETALOS ===== */
 .petalo {
-  position: absolute;
+  position: fixed;
+  top: -20px;
   width: 14px;
   height: 14px;
   background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493);
@@ -60,77 +88,9 @@ body {
   }
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 480px) {
-  .carta {
-    padding: 22px 18px;
-  }
-
-  .carta p {
-    font-size: 1rem;
-  }
-}
-.carta,
-.carta2 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.85);
-  padding: 30px 25px;
-  border-radius: 18px;
-  max-width: 500px;
-  width: 85%;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-/* Carta de arriba */
-.carta2 {
-  top: clamp(80px, 12vh, 140px);
-  z-index: 10;
-}
-
-/* Carta de abajo */
-.carta {
-  top: clamp(320px, 60vh, 420px);
-  z-index: 5;
-  opacity: 0.9;
-}
-
-@media (max-width: 480px) {
-  .carta2 {
-    padding: 22px 18px;
-  }
-
-  .carta2 p {
-    font-size: 1rem;
-  }}
-.carta2 p {
-  color: #cc3366;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 0;
-}
-@keyframes flotarSuave {
-  0% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(-6px);
-  }
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-}
-.carta2 {
-  animation: flotarSuave 6s ease-in-out infinite;
-}
-/* Scrollbar moderno (Chrome, Edge, Safari) */
+/* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
   width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -141,18 +101,14 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(204, 51, 102, 0.6);
 }
-
-
-
-
 </style>
 </head>
 
 <body>
 
-<!-- CONTENIDO DE LA CARTA -->
 <div class="cartas-container">
-  <div class="carta"> <!-- La de arriba -->
+
+  <div class="carta">
     <p>
       Creé este espacio para escribirte cartas.
       Es mi diario para ti, donde guardo lo que siento por ti.
@@ -160,28 +116,29 @@ body {
     </p>
   </div>
 
-  <div class="carta2">
+  <div class="carta">
     <p>
-      Ahora prefieres tu segundo nombre, así que así te llamaré. Estoy muy contento de que en estos días hayamos vuelto a hablar y de saber que te has estado sintiendo un poco mejor.
-La semana en la que no hablamos fue muy tensa, pero poco a poco todo se ha ido haciendo más liviano para los dos, especialmente en las cosas que nos estaban afectando.
-Espero que el tiempo en el que estaré fuera sea un tiempo tranquilo para ti, aunque no pueda demostrarte la atención de la misma forma que ahora. Aun así, recuerda que siempre estaré ahí; es parte de lo que te prometí.
-No le hagas caso a las personas que intentan hacerte sentir menos. Te voy a extrañar mucho y, si se puede, al menos un “buenos días” me haría muy feliz recibir.
-Cuídate mucho.💗
+      Ahora prefieres tu segundo nombre, así que así te llamaré.
+      Estoy muy contento de que en estos días hayamos vuelto a hablar
+      y de saber que te has estado sintiendo un poco mejor.
+      La semana en la que no hablamos fue muy tensa, pero poco a poco
+      todo se ha ido haciendo más liviano para los dos.
+      <br><br>
+      Cuídate mucho. 💗
     </p>
   </div>
+
 </div>
 
-
-<!-- PETALOS CAYENDO -->
 <script>
-  for (let i = 0; i < 40; i++) {
-    const petalo = document.createElement('div');
-    petalo.className = 'petalo';
-    petalo.style.left = Math.random() * 100 + 'vw';
-    petalo.style.animationDuration = (6 + Math.random() * 6) + 's';
-    petalo.style.animationDelay = Math.random() * 5 + 's';
-    document.body.appendChild(petalo);
-  }
+for (let i = 0; i < 40; i++) {
+  const petalo = document.createElement('div');
+  petalo.className = 'petalo';
+  petalo.style.left = Math.random() * 100 + 'vw';
+  petalo.style.animationDuration = (6 + Math.random() * 6) + 's';
+  petalo.style.animationDelay = Math.random() * 5 + 's';
+  document.body.appendChild(petalo);
+}
 </script>
 
 </body>
